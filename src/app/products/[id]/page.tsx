@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 // get id  from path in server component 
 export default async function ProductId({
     params,
@@ -10,9 +12,9 @@ export default async function ProductId({
     });
     console.log("data", data);
     return (
-        <div >
+        <div>
             Products-{data.id} {data.title}
-            <img src={data.images[0]} alt={data.title} />
+            <Image src={data.thumbnail} alt={data.title} width={240} height={240}/>
         </div>
     );
 }
