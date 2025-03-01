@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Button } from "./components/Button";
 interface IProduct {
   id: number;
   title: string;
@@ -27,6 +28,7 @@ export default function Home() {
     <>
       {products.map((product) => <div key={product.id} >
         <Link href={`/products/${product.id}`}>{product.title} </Link></div>)}
+       
     </>
   );
 }
