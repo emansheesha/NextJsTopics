@@ -19,16 +19,12 @@ export async function generateMetadata(
   const product = await fetch(`https://dummyjson.com/products/${id}`).then(
     (res) => res.json()
   );
-
-  // optionally access and extend (rather than replace) parent metadata
-  const previousImages = (await parent).openGraph?.images || [];
-
   return {
     title: product.title,
     description: product.description,
-    // openGraph: {
-    //   images: ['/some-specific-page-image.jpg', ...previousImages],
-    // },
+    openGraph: {
+      images:[...product.images, product.thumbnail] ,
+    },
   };
 }
 // get id  from path in server component
